@@ -3,6 +3,13 @@ import { useAddAproductMutation } from "../app/services/dummyData";
 
 const AddProducts = () => {
   const [addNewProduct, { error, isLoading, data }] = useAddAproductMutation();
+  if (error) {
+    return <p>opps and error adding this product</p>;
+  }
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
   const handleAddProduct = async () => {
     try {
       const newProd = {
@@ -17,12 +24,6 @@ const AddProducts = () => {
     }
   };
 
-  if (error) {
-    return <p>opps and error adding this product</p>;
-  }
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
   return (
     <div>
       <div>{data?.id}</div>

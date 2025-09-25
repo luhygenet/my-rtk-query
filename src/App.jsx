@@ -3,6 +3,7 @@ import AllProducts from "./components/AllProducts";
 import OneProduct from "./components/OneProduct";
 import AddProducts from "./components/AddProducts";
 import UpdateProduct from "./components/UpdateProduct";
+import DeleteProducts from "./components/DeleteProducts";
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       {/* <AllProducts /> */}
       {/* <OneProduct/> */}
       {/* <AddProducts /> */}
-      <UpdateProduct productId = {2}/>
+      {/* <UpdateProduct productId = {2}/> */}
+      <DeleteProducts productId = {4}/>
     </div>
   );
 };
