@@ -12,11 +12,27 @@ export const productApi = createApi({
       query: (id) => `/products/${id}`,
     }),
     addAproduct: builder.mutation({
-        query: (newProduct) => {
-            
-        }
-    })
+      query: (newProduct) => ({
+        url: "/products/add",
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: newProduct,
+      }),
+    }),
+    updateProduct: builder.mutation({
+      query: ({ id, updatedProduct }) => ({
+        url: `/products/${id}`,
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: updatedProduct,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllProductQuery, useGetOneProductQuery } = productApi;
+export const {
+  useGetAllProductQuery,
+  useGetOneProductQuery,
+  useAddAproductMutation,
+  useUpdateProductMutation,
+} = productApi;
